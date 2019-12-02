@@ -1,4 +1,4 @@
-package com.easycoding.javaDataStructure.resource.demo;
+package com.easycoding.demo;
 
 import java.util.Arrays;
 import java.util.List;

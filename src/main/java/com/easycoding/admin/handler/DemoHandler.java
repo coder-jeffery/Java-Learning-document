@@ -1,4 +1,4 @@
-package com.easycoding.javaDataStructure.resource.admin.handler;
+package com.easycoding.admin.handler;
 
 import java.lang.ref.WeakReference;
 import java.util.logging.Handler;

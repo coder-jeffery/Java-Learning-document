@@ -1,4 +1,4 @@
-package com.easycoding.javaDataStructure.resource.demo.event;
+package com.easycoding.demo.event;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

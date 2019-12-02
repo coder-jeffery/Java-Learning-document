@@ -1,4 +1,4 @@
-package com.easycoding.javaDataStructure.resource.demo.event;
+package com.easycoding.demo.event;
 
 /**
  * @author chunming.jiang

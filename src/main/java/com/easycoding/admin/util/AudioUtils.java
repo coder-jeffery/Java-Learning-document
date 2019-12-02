@@ -1,4 +1,4 @@
-package com.easycoding.javaDataStructure.resource.admin.util;
+package com.easycoding.admin.util;
 
 import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;
 import javax.sound.sampled.*;

@@ -1,4 +1,4 @@
-package com.easycoding.javaDataStructure.resource.admin.controller;
+package com.easycoding.admin.controller;
 
 /**
  * @author chunming.jiang

@@ -1,4 +1,4 @@
-package com.easycoding.javaDataStructure.resource.demo;
+package com.easycoding.demo;
 /**
  * @author chunming.jiang
  * @Description //TODO $
