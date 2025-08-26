@@ -1,6 +1,6 @@
 package com.easycoding.admin.util;
 
-import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;
+//import javazoom.spi.mpeg.sampled.file.MpegAudioFileReader;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
@@ -94,8 +94,8 @@ public class AudioUtils {
         AudioInputStream in = null;
         try {
             // 读取音频文件的类
-            MpegAudioFileReader mp = new MpegAudioFileReader();
-            in = mp.getAudioInputStream(mp3);
+//            MpegAudioFileReader mp = new MpegAudioFileReader();
+//            in = mp.getAudioInputStream(mp3);
             AudioFormat baseFormat = in.getFormat();
             // 设定输出格式为pcm格式的音频文件
             targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, baseFormat.getSampleRate(), 16,
