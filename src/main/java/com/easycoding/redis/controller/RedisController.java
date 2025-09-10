@@ -46,26 +46,19 @@ public class RedisController {
         // 获取 Hash 操作对象
         HashOperations<String, Object, Object> hashOps = redisTemplate.opsForHash();
 
-// 新增/修改 hash 中的字段
+        // 新增/修改 hash 中的字段
         hashOps.put("user:1001", "id", 1001);
         hashOps.put("user:1001", "name", "张三");
         hashOps.put("user:1001", "age", 20);
 
-// 批量设置 hash 字段
         Map<Object, Object> userMap = new HashMap<>();
         userMap.put("id", 1002);
         userMap.put("name", "李四");
         hashOps.putAll("user:1002", userMap);
 
-// 获取 hash 中的某个字段
         Object userName = hashOps.get("user:1001", "name");
-
-// 获取整个 hash
         Map<Object, Object> user = hashOps.entries("user:1001");
-
-// 删除 hash 中的字段
         hashOps.delete("user:1001", "age");
-
         return Map.of("user", user, "userName", userName);
     }
 
@@ -93,17 +86,17 @@ public class RedisController {
     public SetOperations<String, Object> set(){
         // 获取 Set 操作对象
         SetOperations<String, Object> setOps = redisTemplate.opsForSet();
-// 添加元素
+        // 添加元素
         setOps.add("myset", "A", "B", "C");
-// 获取集合所有元素
+        // 获取集合所有元素
         Set<Object> allElements = setOps.members("myset");
-// 判断元素是否在集合中
+        // 判断元素是否在集合中
         Boolean isMember = setOps.isMember("myset", "A");
-// 移除元素
+        // 移除元素
         setOps.remove("myset", "A");
-// 集合交集
+        // 集合交集
         Set<Object> intersect = setOps.intersect("myset", "otherset");
-// 集合并集
+        // 集合并集
         Set<Object> union = setOps.union("myset", "otherset");
         return setOps;
     }
@@ -112,19 +105,19 @@ public class RedisController {
     public ZSetOperations<String, Object> zset(){
         // 获取 ZSet 操作对象
         ZSetOperations<String, Object> zSetOps = redisTemplate.opsForZSet();
-// 添加元素（值 + 分数）
+        // 添加元素（值 + 分数）
         zSetOps.add("rank", "张三", 90.5);
         zSetOps.add("rank", "李四", 85.0);
         zSetOps.add("rank", "王五", 95.0);
-// 获取指定范围的元素（按分数升序，0到-1表示所有）
+        // 获取指定范围的元素（按分数升序，0到-1表示所有）
         Set<Object> allElements = zSetOps.range("rank", 0, -1);
-// 获取指定范围的元素（带分数）
+        // 获取指定范围的元素（带分数）
         Set<ZSetOperations.TypedTuple<Object>> elementsWithScore = zSetOps.rangeWithScores("rank", 0, -1);
-// 按分数范围查询（80分到90分）
+        // 按分数范围查询（80分到90分）
         Set<Object> byScore = zSetOps.rangeByScore("rank", 80, 90);
-// 增加元素的分数
+        // 增加元素的分数
         zSetOps.incrementScore("rank", "张三", 2.5); // 张三的分数变为93.0
-// 获取元素排名（升序，从0开始）
+        // 获取元素排名（升序，从0开始）
         Long rank = zSetOps.rank("rank", "张三");
         return zSetOps;
     }
@@ -133,13 +126,13 @@ public class RedisController {
     public void common() {
         // 删除键
         redisTemplate.delete("name");
-// 判断键是否存在
+        // 判断键是否存在
         Boolean exists = redisTemplate.hasKey("name");
-// 设置键过期时间
+        // 设置键过期时间
         redisTemplate.expire("name", 10, TimeUnit.SECONDS);
-// 获取键的剩余过期时间
+        // 获取键的剩余过期时间
         Long expire = redisTemplate.getExpire("name");
-// 序列化键（获取 Redis 中实际存储的键名）
+        // 序列化键（获取 Redis 中实际存储的键名）
         byte[] serializedKey = redisTemplate.getKeySerializer().serialize(null);
     }
 }
